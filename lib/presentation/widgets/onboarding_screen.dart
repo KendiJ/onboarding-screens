@@ -49,40 +49,51 @@ class _OnboardingPageState extends State<OnboardingPage> {
               ),
             ),
             // DotIndicator(),
-            ...List.generate(
-              demo_data.length,
-              (index) => Padding(
-                padding: const EdgeInsets.only(right: 4),
-                child: DotIndicator(isActive: index == _pageIndex),
-              ),
-            ),
+
             const SizedBox(height: 20),
-            SizedBox(
-              height: 40,
-              width: 70,
-              child: ElevatedButton(
-                onPressed: () {
-                  _pageController.nextPage(
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.ease,
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple[300],
-                ),
-                child: const Text(
-                  "Next",
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              child: OutlinedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple[300],
-                ),
-                child: const Text("Skip"),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: 40,
+                    width: 70,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.purple[300],
+                      ),
+                      child: const Text("Skip"),
+                    ),
+                  ),
+                  const Spacer(),
+                  ...List.generate(
+                    demo_data.length,
+                    (index) => Padding(
+                      padding: const EdgeInsets.only(right: 4),
+                      child: DotIndicator(isActive: index == _pageIndex),
+                    ),
+                  ),
+                  const Spacer(),
+                  SizedBox(
+                    height: 40,
+                    width: 70,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _pageController.nextPage(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.ease,
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.purple[300],
+                      ),
+                      child: const Text(
+                        "Next",
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
@@ -103,7 +114,7 @@ class DotIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: isActive ? 020 : 4,
+      height: isActive ? 12 : 4,
       width: 9,
       decoration: BoxDecoration(
         color: Colors.purple[300],
