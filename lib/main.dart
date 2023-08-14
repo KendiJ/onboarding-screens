@@ -1,4 +1,4 @@
-import 'package:flows/presentation/widgets/onboarding_screen.dart';
+import 'package:flows/presentation/views/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 
