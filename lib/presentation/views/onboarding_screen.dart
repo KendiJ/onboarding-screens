@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'login.dart';
+
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
 
@@ -34,7 +36,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           children: [
             Expanded(
               child: PageView.builder(
-                itemCount: demo_data.length,
+                itemCount: demodata.length,
                 controller: _pageController,
                 onPageChanged: (index) {
                   setState(() {
@@ -42,9 +44,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   });
                 },
                 itemBuilder: (context, index) => Onboarding(
-                  image: demo_data[index].image,
-                  title: demo_data[index].title,
-                  description: demo_data[index].description,
+                  image: demodata[index].image,
+                  title: demodata[index].title,
+                  description: demodata[index].description,
                 ),
               ),
             ),
@@ -59,7 +61,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     height: 40,
                     width: 70,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const LogIn()));
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.purple[300],
                       ),
@@ -68,7 +72,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   ),
                   const Spacer(),
                   ...List.generate(
-                    demo_data.length,
+                    demodata.length,
                     (index) => Padding(
                       padding: const EdgeInsets.only(right: 4),
                       child: DotIndicator(isActive: index == _pageIndex),
@@ -135,7 +139,7 @@ class Onboard {
   final String image, title, description;
 }
 
-final List<Onboard> demo_data = [
+final List<Onboard> demodata = [
   const Onboard(
     image: 'assets/images/one.png',
     title: 'Team up for success',
