@@ -11,25 +11,29 @@ class LogIn extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-          appBar: AppBar(
-            title: const Text("Welcome here", style: TextStyle(color: Colors.black)),
-            backgroundColor: Colors.purple[100],
-            centerTitle: true,
-            bottom: const TabBar(tabs: [
-              Tab( 
-                text: "Login",
-              ),
-              Tab(
-                text: "Sign Up",
-              ),
-            ]),
+        appBar: AppBar(
+          title: const Text(
+            "Welcome here",
+            style: TextStyle(color: Colors.black),
           ),
-          body: const TabBarView(
-            children: [
-              LogInView(),
-              SignUpView(),
-            ],
-          ),),
+          centerTitle: true,
+          backgroundColor: Colors.purple[100],
+          bottom: const TabBar(tabs: [
+            Tab(
+              text: "Login",
+            ),
+            Tab(
+              text: "Sign Up",
+            ),
+          ]),
+        ),
+        body: const TabBarView(
+          children: [
+            LogInView(),
+            SignUpView(),
+          ],
+        ),
+      ),
     );
   }
 }
