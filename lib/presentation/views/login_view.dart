@@ -1,3 +1,5 @@
+import 'package:flows/presentation/views/forgot_password.dart';
+import 'package:flows/presentation/views/home_page.dart';
 import 'package:flutter/material.dart';
 
 class LogInView extends StatelessWidget {
@@ -6,97 +8,138 @@ class LogInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 100, 20, 10),
-          child: Column(
-            children: [
-              Container(
-                height: 40,
-                width: 300,
-                color: Colors.grey[350],
-                child: OutlinedButton(
-                  onPressed: () {},
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(Icons.apple),
-                      Text("Login with Apple"),
-                    ],
-                  ),
+      body: Container(
+        color: Colors.grey[300],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0.5),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
                 ),
-              ),
-              const SizedBox(height: 20),
-              Container(
-                height: 40,
-                width: 300,
-                color: Colors.grey[350],
-                child: OutlinedButton(
-                  onPressed: () {},
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(Icons.facebook),
-                      Text("Login with Google"),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 40),
-              const Divider(thickness: 1),
-              const SizedBox(height: 40),
-              Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.grey[350],
-                  ),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                      icon: Icon(Icons.email),
-                      hintText: "Enter your email",
+                onPressed: () {},
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.apple, color: Colors.black),
+                    Text(
+                      "Sign in with Apple",
+                      style: TextStyle(color: Colors.black),
                     ),
-                  )),
-              const SizedBox(height: 20),
-              Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.grey[350],
-                  ),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                      icon: Icon(Icons.lock),
-                      hintText: "Enter your password",
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0.5),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                ),
+                onPressed: () {},
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.ballot_sharp, color: Colors.black),
+                    Text(
+                      "Sign in with Google",
+                      style: TextStyle(color: Colors.black),
                     ),
-                  )),
-              const SizedBox(height: 40),
-              Container(
-                height: 40,
-                width: 300,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  color: Colors.grey[350],
-                ),
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text("Forgot password?",style: TextStyle(color: Colors.black),),
+                  ],
                 ),
               ),
-              const SizedBox(height: 40),
-              Container(
-                width: 300,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.green[100],
+            ),
+            const SizedBox(height: 20),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                      margin: const EdgeInsets.only(left: 10.0, right: 15.0),
+                      child: const Divider(
+                        color: Colors.black,
+                        height: 50,
+                      )),
+                ),
+                const Text("or continue with email"),
+                Expanded(
+                  child: Container(
+                      margin: const EdgeInsets.only(left: 15.0, right: 10.0),
+                      child: const Divider(
+                        color: Colors.black,
+                        height: 50,
+                      )),
+                ),
+              ],
+            ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(20, 20, 20, 0.5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Colors.white,
+              ),
+              child: const ListTile(
+                leading: Icon(Icons.email),
+                title: TextField(
+                  decoration: InputDecoration(
+                    hintText: "Enter your Password",
                   ),
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text("Login", style: TextStyle(color: Colors.black),),
                 ),
               ),
-              const SizedBox(height: 20),
-              const Text("By sisning up, you agree with our Terms of Service and Privacy Policy")
-            ],
-          ),
+            ),
+            Container(
+              margin: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Colors.white,
+              ),
+              child: const ListTile(
+                leading: Icon(Icons.lock),
+                title: TextField(
+                  decoration: InputDecoration(
+                    hintText: "Enter your Password",
+                  ),
+                ),
+                trailing: Icon(Icons.visibility),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 220),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const ForgotPassword()));
+                },
+                child: const Text("Forgot Password?"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0.5),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(Colors.purple[300]),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const HomePage()));
+                },
+                child: const Text("Log In"),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(20, 20, 20, 0.5),
+              child: Text(
+                  "By continuing you agree to our Terms of Use and Privacy Policy"),
+            ),
+          ],
         ),
       ),
     );
