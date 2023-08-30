@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flows/firebase_options.dart';
 import 'package:flows/presentation/cubits/login/login_cubit.dart';
 import 'package:flows/presentation/cubits/login/login_state.dart';
 import 'package:flows/presentation/cubits/registration/registration_cubit.dart';
@@ -9,9 +10,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(
-    const MyApp(),
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
+  runApp( const MyApp(),
   );
 }
 
@@ -22,12 +24,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-            create: (context) =>
-                RegistrationCubit(RegistrationState.initial())),
-        BlocProvider(create: (context) => LoginCubit(LoginState.initial())),
-      ],
+    providers: [
+      BlocProvider(create: (context)=> RegistrationCubit(RegistrationState.initial())),
+      BlocProvider(create: (context)=> LoginCubit(LoginState.initial())),
+    ],
+    
       child: const MaterialApp(
         title: 'Flutter Demo',
         home: OnboardingPage(),

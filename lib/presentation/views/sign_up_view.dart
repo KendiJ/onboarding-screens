@@ -12,8 +12,8 @@ class _SignUpViewState extends State<SignUpView> {
   bool value = false;
 
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  // final TextEditingController _passwordController = TextEditingController();
+  // final TextEditingController _confirmPasswordController = TextEditingController();
 
   late String _password;
   double _strength = 0;
