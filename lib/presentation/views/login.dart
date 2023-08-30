@@ -27,10 +27,10 @@ class LogIn extends StatelessWidget {
             ),
           ]),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
             LogInView(),
-            SignUpView(),
+            const SignUpView(),
           ],
         ),
       ),
